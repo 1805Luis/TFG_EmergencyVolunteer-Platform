@@ -1,0 +1,186 @@
+services:
+  apigateway:
+    image: apigateway
+    container_name: apigateway
+    build:
+      context: ./Api-Gestion/ApiGateway
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    restart: "unless-stopped"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    restart: "unless-stopped"
+
+  authservice:
+    image: authservice
+    container_name: auth
+    build:
+      context: ./Api-Gestion/AuthService
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+      - userservice
+      - auth-db
+      - apigateway
+    restart: "unless-stopped"
+
+  auth-db:
+    image: mcr.microsoft.com/mssql/server
+    container_name: auth-db
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "%5Y8o5!*m80Un"
+      MSSQL_PID: Express
+    ports:
+      - "14333:1433"
+    restart: "unless-stopped"
+
+  userservice:
+    image: userservice
+    container_name: user
+    build:
+      context: ./Api-Gestion/UserService
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+      - user-db
+    restart: "unless-stopped"
+
+  user-db:
+    image: mcr.microsoft.com/mssql/server
+    container_name: user-db
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "7nqfX4G99p_y"
+      MSSQL_PID: Express
+    restart: "unless-stopped"
+
+  bitacoraservice:
+    image: bitacoraservice
+    container_name: bitacora
+    build:
+      context: ./Api-Gestion/BitacoraService
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+      - bitacora-db
+    restart: "unless-stopped"
+
+  bitacora-db:
+    image: postgres:16
+    container_name: bitacora-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "*Ng@B5%95Md#103"
+      POSTGRES_DB: bitacora
+    ports:
+      - "5432:5432"
+    restart: "unless-stopped"
+
+  taskservice:
+    image: taskservice
+    container_name: tareas
+    build:
+      context: ./Api-Gestion/TaskService
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+      - bitacora-db
+    restart: "unless-stopped"
+
+  task-db:
+    image: mcr.microsoft.com/mssql/server
+    container_name: task-db
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "rPo7U76(Fnpu"
+      MSSQL_PID: Express
+    ports:
+      - "14335:1433"
+    restart: "unless-stopped"
+
+  emergencyservice:
+    image: emergencyservice
+    container_name: emergencia
+    build:
+      context: ./Api-Gestion/EmergencyService
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+      - emergency-db
+    restart: "unless-stopped"
+
+  emergency-db:
+    image: postgis/postgis:latest
+    container_name: emergency-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "T4kwVn!s(5b9"
+      POSTGRES_DB: emergency
+    ports:
+      - "5433:5432"
+    restart: "unless-stopped"
+
+  groupservice:
+    image: groupservice
+    build:
+      context: ./Api-Gestion/GroupService
+      dockerfile: Dockerfile
+    container_name: grupos
+    depends_on:
+      - rabbitmq
+      - group-db
+    restart: "unless-stopped"
+
+  group-db:
+    image: mcr.microsoft.com/mssql/server
+    container_name: group-db
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "4|25{S>li7+V"
+      MSSQL_PID: Express
+    ports:
+      - "14337:1433"
+    restart: "unless-stopped"
+
+  assigmentservice:
+    image: assigmentservice
+    container_name: asignaciones
+    build:
+      context: ./Api-Gestion/AssigmentService
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+      - assign-db
+    restart: "unless-stopped"
+
+  assign-db:
+    image: mcr.microsoft.com/mssql/server
+    container_name: assign-db
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "1%@qAK5m194w"
+      MSSQL_PID: Express
+    ports:
+      - "14338:1433"
+    restart: "unless-stopped"
+
+  ui-gestion:
+    image: ui-gestion
+    build:
+      context: ./UI-Gestion
+    container_name: ui-gestion
+    ports:
+      - "3000:80"
+    depends_on:
+      - apigateway
+    restart: "unless-stopped"
