@@ -1,0 +1,483 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/tarea_grupos",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "assigmentservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/tarea_grupos",
+            "UpstreamHttpMethod": [ "GET" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/tarea_grupos/tarea/{tareaId}/grupo/{grupoId}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "assigmentservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/tarea_grupos/tarea/{tareaId}/grupo/{grupoId}",
+            "UpstreamHttpMethod": [ "PATCH" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/grupos_voluntarios",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "assigmentservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/grupos_voluntarios",
+            "UpstreamHttpMethod": [ "GET" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/grupos_voluntarios/migrupo/{grupoId}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "assigmentservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/grupos_voluntarios/migrupo/{grupoId}",
+            "UpstreamHttpMethod": [ "GET" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/grupos_voluntarios/grupo/{grupoId}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "assigmentservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/grupos_voluntarios/grupo/{grupoId}",
+            "UpstreamHttpMethod": [ "POST", "DELETE" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/grupos_voluntarios/mirol/grupo/{grupoId}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "assigmentservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/grupos_voluntarios/mirol/grupo/{grupoId}",
+            "UpstreamHttpMethod": [ "PATCH" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/grupos_voluntarios/rol/grupo/{grupoId}/voluntario/{voluntarioId}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "assigmentservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/grupos_voluntarios/rol/grupo/{grupoId}/voluntario/{voluntarioId}",
+            "UpstreamHttpMethod": [ "PATCH" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/grupos",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "groupservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/grupos",
+            "UpstreamHttpMethod": [ "GET", "POST" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/grupos/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "groupservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/grupos/{id}",
+            "UpstreamHttpMethod": [ "PATCH", "DELETE" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/recursos",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "groupservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/recursos",
+            "UpstreamHttpMethod": [ "GET" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/recursos/{grupoId}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "groupservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/recursos/{grupoId}",
+            "UpstreamHttpMethod": [ "POST" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/recursos/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "groupservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/recursos/{id}",
+            "UpstreamHttpMethod": [ "PATCH", "DELETE" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/emergencias",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "emergencyservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/emergencias",
+            "UpstreamHttpMethod": [ "GET", "POST" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/emergencias/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "emergencyservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/emergencias/{id}",
+            "UpstreamHttpMethod": [ "PATCH", "DELETE" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/tareas",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "taskservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/tareas",
+            "UpstreamHttpMethod": [ "GET" ]
+        },
+        {
+            "DownstreamPathTemplate": "/tareas/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "taskservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/tareas/{id}",
+            "UpstreamHttpMethod": [ "PATCH", "DELETE" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/tareas/{emergencia_id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "taskservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/tareas/{emergencia_id}",
+            "UpstreamHttpMethod": [ "POST" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/auth/me",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/auth/me",
+            "UpstreamHttpMethod": [ "GET" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/auth/register",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/auth/register",
+            "UpstreamHttpMethod": [ "POST" ]
+        },
+        {
+            "DownstreamPathTemplate": "/auth/login",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/auth/login",
+            "UpstreamHttpMethod": [ "POST" ]
+        },
+        {
+            "DownstreamPathTemplate": "/auth/refresh-token",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/auth/refresh-token",
+            "UpstreamHttpMethod": [ "POST" ]
+        },
+        {
+            "DownstreamPathTemplate": "/auth/cambio-credenciales",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/auth/cambio-credenciales",
+            "UpstreamHttpMethod": [ "PATCH" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/auth/logout",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/auth/logout",
+            "UpstreamHttpMethod": [ "DELETE" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/auth/delete",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/auth/delete",
+            "UpstreamHttpMethod": [ "DELETE" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/auth/cambiarRol",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/auth/cambiarRol",
+            "UpstreamHttpMethod": [ "PATCH" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/auth/estado/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/auth/estado/{id}",
+            "UpstreamHttpMethod": [ "PATCH" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+
+        {
+            "UpstreamPathTemplate": "/audit",
+            "UpstreamHttpMethod": [ "GET" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "bitacoraservice",
+                    "Port": 8080
+                }
+            ],
+            "DownstreamPathTemplate": "/audit",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+
+
+        {
+            "UpstreamPathTemplate": "/user",
+            "UpstreamHttpMethod": [ "GET" ],
+
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "userservice",
+                    "Port": 8080
+
+                }
+            ],
+            "DownstreamPathTemplate": "/user",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "UpstreamPathTemplate": "/user/{id}",
+            "UpstreamHttpMethod": [ "GET" ],
+
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "userservice",
+                    "Port": 8080
+
+                }
+            ],
+            "DownstreamPathTemplate": "/user/{id}",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/user/modificar-perfil",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "userservice",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/user/modificar-perfil",
+            "UpstreamHttpMethod": [ "PATCH" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "JwtBearer",
+                "AllowedScopes": []
+            }
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://localhost:8000"
+    }
+}

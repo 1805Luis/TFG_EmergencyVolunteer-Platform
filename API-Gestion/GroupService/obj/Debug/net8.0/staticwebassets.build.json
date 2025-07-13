@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "A1xniNXQnG50dJCLwBd6hdAA60dZG+UeSJF/kBAYh+4=",
+  "Source": "GroupService",
+  "BasePath": "_content/GroupService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

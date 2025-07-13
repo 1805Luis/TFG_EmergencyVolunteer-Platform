@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "IMUF6IRyaZPvh5bdGfmipHMG/NXavSHh+1Q5izL55HI=",
+  "Source": "EmergencyService",
+  "BasePath": "_content/EmergencyService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,19 @@
+name: dockercompose9786474554806460690
+services:
+  apigateway:
+    build:
+      context: C:\Users\Luis\Desktop\TFG-GestionVoluntariado\API-Gestion
+      dockerfile: ApiGateway/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+    image: apigateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+networks:
+  default:
+    name: dockercompose9786474554806460690_default

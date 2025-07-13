@@ -1,0 +1,121 @@
+name: dockercompose9786474554806460690
+services:
+  apigateway:
+    build:
+      context: C:\Users\Luis\Desktop\TFG-GestionVoluntariado\API-Gestion
+      dockerfile: ApiGateway/Dockerfile
+    container_name: apigateway
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+    image: apigateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8080"
+        protocol: tcp
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+  auth-db:
+    container_name: auth-db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Express
+      SA_PASSWORD: '%5Y8o5!*m80Un'
+    image: mcr.microsoft.com/mssql/server
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "14333"
+        protocol: tcp
+  authservice:
+    build:
+      context: C:\Users\Luis\Desktop\TFG-GestionVoluntariado\API-Gestion
+      dockerfile: AuthService/Dockerfile
+    container_name: auth
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+    image: authservice
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8082"
+        protocol: tcp
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+  bitacoraservice:
+    build:
+      context: C:\Users\Luis\Desktop\TFG-GestionVoluntariado\API-Gestion
+      dockerfile: BitacoraService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+    image: bitacoraservice
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+  rabbitmq:
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_DEFAULT_USER: guest
+    image: rabbitmq:3-management
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5672
+        published: "5672"
+        protocol: tcp
+      - mode: ingress
+        target: 15672
+        published: "15672"
+        protocol: tcp
+  user-db:
+    container_name: user-db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Express
+      SA_PASSWORD: 7nqfX4G99p:y
+    image: mcr.microsoft.com/mssql/server
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "14334"
+        protocol: tcp
+  userservice:
+    build:
+      context: C:\Users\Luis\Desktop\TFG-GestionVoluntariado\API-Gestion
+      dockerfile: UserService/Dockerfile
+    container_name: user
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+    image: userservice
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8081"
+        protocol: tcp
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+networks:
+  default:
+    name: dockercompose9786474554806460690_default

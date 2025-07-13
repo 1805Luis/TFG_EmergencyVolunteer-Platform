@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "LDpq8HiSj+k6rTdQJzhwEmpG+TZScb336k5I5hGL7+Q=",
+  "Source": "BitacoraService",
+  "BasePath": "_content/BitacoraService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

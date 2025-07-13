@@ -1,0 +1,112 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "AssigmentService",
+    "version": "1.0"
+  },
+  "paths": {
+    "/tarea_grupos": {
+      "get": {
+        "tags": [
+          "tarea_grupos"
+        ],
+        "parameters": [
+          {
+            "name": "tarea_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "grupo_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "estado",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Estado"
+            }
+          },
+          {
+            "name": "fecha_completada_inicio",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "fecha_completada_fin",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/tarea_grupos/tarea/{tareaId}/grupo/{grupoId}": {
+      "patch": {
+        "tags": [
+          "tarea_grupos"
+        ],
+        "parameters": [
+          {
+            "name": "tareaId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "grupoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "nuevoEstado",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Estado"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Estado": {
+        "enum": [
+          "EnProgreso",
+          "Completada"
+        ],
+        "type": "string"
+      }
+    }
+  }
+}

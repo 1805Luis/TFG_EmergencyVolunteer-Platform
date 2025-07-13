@@ -1,0 +1,6 @@
+@BitacoraService_HostAddress = http://localhost:5276
+
+GET {{BitacoraService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
