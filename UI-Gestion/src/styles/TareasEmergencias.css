@@ -1,0 +1,294 @@
+/* === PANEL DE TAREAS EMERGENCIAS === */
+.tareas-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem 3rem;              /* ← más espacio lateral */
+  max-width: 1200px;               /* ← ampliamos el ancho máximo del panel */
+  margin: 0 auto;
+  justify-content: flex-start;     /* ← alinea fichas al inicio */
+}
+
+
+/* Cada Ficha ocupa 2 columnas */
+.ficha {
+  flex: 0 0 calc(50% - 0.5rem);
+  max-height: 25vh;
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  font-family: 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ficha:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* RESPONSIVE: una ficha por fila en móviles */
+@media (max-width: 600px) {
+  .ficha {
+    flex: 0 0 100%;
+  }
+}
+
+/* === Colores según gravedad === */
+.gravedad-baja {
+  border-color: green;
+  background-color: #e6fbe6;
+}
+
+.gravedad-media {
+  border-color: orange;
+  background-color: #fff3e0;
+}
+
+.gravedad-alta {
+  border-color: red;
+  background-color: #fdecea;
+}
+
+.gravedad-critica {
+  border-color: purple;
+  background-color: #f3e5f5;
+}
+
+/* === MODAL === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  max-width: 600px;
+  width: 90%;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+}
+
+/* Título del modal */
+.modal h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Botones del modal */
+.modal > button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.modal > button:hover {
+  background-color: #0056b3;
+}
+
+/* === FORMULARIO DE EDICIÓN === */
+.formulario-tarea {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.formulario-tarea label {
+  font-weight: bold;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.formulario-tarea input,
+.formulario-tarea textarea,
+.formulario-tarea select {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.formulario-tarea input:focus,
+.formulario-tarea textarea:focus,
+.formulario-tarea select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.formulario-tarea textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.formulario-tarea button {
+  align-self: flex-end;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formulario-tarea button:hover {
+  background-color: #218838;
+}
+
+/* === Botones secundarios (editar/eliminar) === */
+.modal-buttons-tarea {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.modal-buttons-tarea button {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.modal-buttons-tarea button:first-child {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.modal-buttons-tarea button:first-child:hover {
+  background-color: #e0a800;
+}
+
+.modal-buttons-tarea button:last-child {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.modal-buttons-tarea button:last-child:hover {
+  background-color: #a71d2a;
+}
+
+/* === BOTÓN FLOTANTE PARA NUEVA TAREA === */
+.boton-flotante {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1100;
+}
+
+.boton-flotante:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.boton-filtro {
+  position: fixed;
+  bottom: 6rem;
+  right: 2rem;
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.boton-filtro:hover {
+  background-color: #e0a800;
+}
+
+.boton-filtro span {
+  background-color: #000;
+  color: #fff;
+  border-radius: 12px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.85rem;
+}
+
+/* === Modal de filtros === */
+.formulario-filtro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.formulario-filtro input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.botones-filtro {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.botones-filtro button {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.botones-filtro button:first-child {
+  background-color: #007bff;
+  color: white;
+}
+
+.botones-filtro button:last-child {
+  background-color: #dc3545;
+  color: white;
+}

@@ -1,0 +1,42 @@
+.legal-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #ccc;
+  padding: 1.2rem 2rem;
+  font-size: 0.85rem;
+  color: #555;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.85rem;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.footer-links button:hover {
+  color: #0056b3;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  max-width: 100%;
+}

@@ -1,0 +1,169 @@
+/* 🌐 CONTENEDOR PRINCIPAL */
+.sidebar {
+  position: fixed;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+  padding-left: 12px;
+  transition: width 0.3s ease, transform 0.3s ease;
+  overflow-y: auto;
+}
+
+
+.sidebar.expanded {
+  width: 140px;
+}
+
+.sidebar.collapsed {
+  width: 85px;
+}
+
+/* BOTÓN EXPANDIR/CERRAR */
+.Sidebarbutton {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;
+}
+
+.sidebar.expanded .Sidebarbutton {
+  border-radius: 20px;
+  padding: 8px 16px;
+}
+
+.btn-text {
+  font-size: 14px;
+  user-select: none;
+}
+
+/* ENLACES GENERALES */
+.Links,
+.sublink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  width: 90%; /* 👈 limita el ancho dentro del sidebar */
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.Links:hover {
+  background-color: #ecf0f1;
+}
+
+.Links.active {
+  background-color: #3498db;
+  color: white;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+}
+
+/* ICONOS */
+.LinkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: font-size 0.3s ease, transform 0.3s ease;
+}
+
+.icon-collapsed {
+  font-size: 22px;
+}
+
+.LinkText {
+  font-size: 14px;
+}
+
+/*  COLAPSADO VISUAL */
+.sidebar.collapsed .Links,
+.sidebar.collapsed .sublink {
+  justify-content: center;
+  padding: 12px;
+  margin-left: 0;
+}
+
+.sidebar.collapsed .LinkText,
+.sidebar.collapsed .sublink .LinkText {
+  display: none;
+}
+
+/* ETIQUETA CON FLECHITA */
+.LinkTextWithArrow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 🠗 FLECHA ROTATORIA */
+.arrow {
+  transition: transform 0.3s ease;
+  margin-left: 4px;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* SUBMENÚ CON EFECTO FLOTANTE */
+.submenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transform-origin: top;
+  transform: scaleY(0);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  width: auto;
+  margin: 8px;
+}
+
+.submenu.open {
+  transform: scaleY(1);
+  opacity: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* EFECTO ESCALONADO EN CADA ITEM */
+.submenu .sublink {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: floatIn 0.4s ease forwards;
+}
+
+.submenu.open .sublink:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.submenu.open .sublink:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+@keyframes floatIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sidebar > .Links.salir {
+  margin-top: auto; /* ⬇️ empuja hacia abajo */
+  margin-bottom: 20px;
+}

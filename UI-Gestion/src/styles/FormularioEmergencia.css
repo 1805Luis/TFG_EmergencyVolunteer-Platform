@@ -1,0 +1,81 @@
+.formulario-emergencia-container {
+  display: flex;
+  padding: 2rem;
+  gap: 2rem;
+  height: 600px; /* Para que mapa y formulario tengan altura igual */
+}
+
+.mapa-columna {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.formulario-columna {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+.formulario-columna label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.formulario-columna input,
+.formulario-columna select,
+.formulario-columna textarea {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 0.3rem;
+  font-family: inherit;
+}
+
+.tareas-section {
+  margin-top: 2rem;
+}
+
+.tarea-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: #f9f9f9;
+}
+
+.boton-eliminar-tarea {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.boton-eliminar-tarea:hover {
+  background-color: #a71d2a;
+}
+
+.boton-agregar-tarea {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.boton-agregar-tarea:hover {
+  background-color: #218838;
+}

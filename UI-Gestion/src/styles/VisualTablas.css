@@ -1,0 +1,251 @@
+.boton-rol-selector {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.boton-rol-modal {
+  background-color: #1d95e6;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.boton-rol-modal:hover {
+  background-color: #1b75b1;
+  color: white;
+}
+
+.boton-cancelar {
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.boton-cancelar:hover {
+  background-color: #c53030;
+}
+
+.id-interactivo {
+  background: none;
+  border: none;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.id-interactivo:hover {
+  color: #0056b3;
+}
+
+.modal p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+}
+.modal h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.listado-glass {
+  background: rgba(255, 255, 255, 0.55); /* Blanco con transparencia */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+}
+
+/* 🧊 Glass panel para el modal de perfil */
+.modal-contenido-blur.tarjeta-usuario {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* 📌 Cabecera con ícono y título */
+.encabezado-usuario {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.encabezado-usuario h2 {
+  font-size: 1.5rem;
+  color: #222;
+  margin: 0;
+}
+
+/* 🔍 Información con iconos alineados */
+.grupo-datos p {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.grupo-datos .icono {
+  font-size: 1.2rem;
+  color: #007bff;
+}
+
+/*  Botón elegante de cierre */
+.tarjeta-usuario .boton-cancelar {
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tarjeta-usuario .boton-cancelar:hover {
+  background-color: #c53030;
+}
+
+/* Tarjeta para cambio de rol con estilo similar al perfil */
+.modal-contenido-blur.tarjeta-cambio-rol {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tarjeta-cambio-rol h2 {
+  font-size: 1.5rem;
+  color: #222;
+  margin: 0;
+}
+
+.tarjeta-cambio-rol p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.encabezado-usuario {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.tooltip-container:hover .tooltip {
+  opacity: 1;
+}
+
+.modificar-buttons {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+/* Botón tipo neumórfico para cambio de rol */
+.boton-rol-modificar {
+  background: #e0e0e0;
+  border-radius: 12px;
+  box-shadow:
+    5px 5px 10px #bebebe,
+    -5px -5px 10px #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.boton-rol-modificar:hover {
+  box-shadow:
+    inset 3px 3px 6px #bebebe,
+    inset -3px -3px 6px #ffffff;
+  color: #007bff;
+}
+
+/* Si quieres mantener el botón de estado con mismo estilo neumórfico: */
+.boton-estado {
+  background: #e0e0e0;
+  color: #222;
+  border-radius: 12px;
+  box-shadow:
+    5px 5px 10px #bebebe,
+    -5px -5px 10px #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.boton-estado:hover {
+  box-shadow:
+    inset 3px 3px 6px #bebebe,
+    inset -3px -3px 6px #ffffff;
+  color: #007bff;
+}

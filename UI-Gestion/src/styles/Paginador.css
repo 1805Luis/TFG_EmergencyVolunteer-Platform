@@ -1,0 +1,26 @@
+.paginador {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+}
+
+.paginador .campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.paginador input[type="number"] {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+  width: 100px;
+}
+
+.paginador input[type="number"]:focus {
+  border-color: #007bff;
+  outline: none;
+}

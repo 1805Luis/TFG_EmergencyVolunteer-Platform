@@ -1,0 +1,123 @@
+.rol-Lider { background-color: #f8d7da; }
+.rol-Sanitario { background-color: #e0f7fa; }
+.rol-Logistica { background-color: #fff3cd; }
+.rol-Explorador { background-color: #d1ecf1; }
+.rol-Tecnico { background-color: #d4edda; }
+.rol-Comunicaciones { background-color: #fefefe; }
+.rol-Apoyo_Emocional { background-color: #e8daef; }
+.rol-Voluntario_General { background-color: #e2e3e5; }
+
+/*selectores*/
+.select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 2px solid #ccc;
+  transition: border-color 0.2s ease;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+  cursor: pointer;
+}
+
+
+.select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.estado-EnProgreso {
+  background-color: #fff6cc;
+  color: #996c00;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+  animation: sonar 2s infinite;
+  cursor: pointer;
+}
+
+.estado-Completada {
+  background-color: #d4edda;
+  color: #2f6e4f;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@keyframes sonar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.tarjeta-equipo {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
+}
+
+.lista-miembros {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item-miembro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nombre-miembro {
+  font-weight: 600;
+  color: #333;
+}
+
+.selector-rol {
+  padding: 6px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.rol-tag {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.item-miembro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.caja-miembro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  background-color: rgba(240, 240, 240, 0.7);
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+}
+
+.miembro-actual .caja-miembro {
+  background-color: #d4edda;
+  border: 2px solid #2f6e4f;
+}
+
+.nombre-miembro {
+  font-weight: 600;
+  color: #333;
+}
+
+.selector-rol, .rol-tag {
+  margin-left: auto;
+  font-weight: bold;
+}

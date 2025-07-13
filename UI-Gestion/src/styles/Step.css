@@ -1,0 +1,59 @@
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #4285f4;
+}
+
+.form-group.inline-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-group.inline-checkbox label {
+  margin: 0;
+}
+
+.error-text {
+  color: #e53e3e;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Campos obligatorios inicialmente normales */
+.input-field:required {
+  border-color: #ddd;
+}
+
+/* Cuando hay error (campo requerido vacío o patrón no válido) */
+.input-field.error {
+  border-color: #e53e3e !important;  /* rojo */
+  box-shadow: 0 0 5px #e53e3e !important;
+}
+
+/* Cuando está correcto (puedes controlar con validación de HTML o con clases adicionales) */
+.input-field.valid {
+  border-color: #34a853 !important;  /* verde */
+  box-shadow: 0 0 5px #34a853 !important;
+}
+

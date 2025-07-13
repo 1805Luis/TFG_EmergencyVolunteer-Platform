@@ -1,0 +1,140 @@
+/* Contenedor principal */
+.listado-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Encabezado con título e icono */
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.encabezado h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* Layout superior con paginador y filtro */
+.layout-superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.paginador-y-filtro {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+/* Estilo del icono de filtros */
+.icono-filtros-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icono-fondo {
+  background-color: #007bff;
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.icono-fondo:hover {
+  background-color: #0056b3;
+}
+
+.icono-filtros {
+  color: white;
+}
+
+/* Tooltip del icono */
+.icono-filtros-wrapper::after {
+  content: "Abrir filtros";
+  position: absolute;
+  bottom: -1.8rem;
+  font-size: 0.75rem;
+  background-color: #333;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.icono-filtros-wrapper:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Contador de filtros activos */
+.contador-filtros {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #e53e3e;
+  color: white;
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-weight: bold;
+  box-shadow: 0 0 0 2px white;
+}
+
+/* Se oculta automáticamente si no hay filtros activos */
+.contador-filtros:empty {
+  display: none;
+}
+
+/* Paginación numerada debajo de la tabla */
+.paginador-numerico {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.paginador-numerico button {
+  margin: 0 0.25rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.paginador-numerico button:disabled {
+  background-color: #007bff;
+  color: white;
+  cursor: default;
+}
+
+.paginador-numerico button:hover:not(:disabled) {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Resumen de tabla */
+.tabla-resumen {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+}

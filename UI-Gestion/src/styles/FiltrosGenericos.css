@@ -1,0 +1,59 @@
+.filtros-genericos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem 2rem;
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.campo-filtro {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  gap: 0.4rem;
+}
+
+.campo-filtro label {
+  font-weight: 500;
+  color: #333;
+}
+
+.campo-filtro input,
+.campo-filtro select {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.2s ease;
+  background-color: #fff;
+}
+
+.campo-filtro input:focus,
+.campo-filtro select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.acciones-filtro {
+  grid-column: span 2;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.acciones-filtro button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.acciones-filtro button:hover {
+  background-color: #0056b3;
+}

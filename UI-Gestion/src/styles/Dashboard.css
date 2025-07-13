@@ -1,0 +1,334 @@
+/* ==== Diseño general de layout ==== */
+.dashboard {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative; /* para posicionar los botones flotantes */
+}
+
+/* Mitades izquierda (mapa) y derecha (info) */
+.mapa-container {
+  height: 100vh;
+  box-sizing: border-box;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.info-container {
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto; /* para scroll */
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0.5rem;
+}
+
+
+/* Vista recortada para las fichas */
+.ficha-lista-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ficha-lista-slider {
+  display: flex;
+  flex-direction: column;
+}
+
+.ficha h2 {
+  margin-top: 0;
+  color: #c00;
+  word-break: break-word;
+}
+
+.ficha p {
+  margin: 0.5rem 0;
+  word-wrap: break-word;
+}
+
+/* Botones flechas */
+.flecha {
+  background-color: #007bff;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.flecha:hover {
+  background-color: #0056b3;
+}
+
+/* Botones dentro del modal */
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.modal-buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-buttons button:hover {
+  background-color: #0056b3;
+}
+
+/* Sin emergencias */
+.sin-emergencias {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem;
+  flex: 1;
+  text-align: center;
+}
+
+.sin-emergencias h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.sin-emergencias p {
+  font-size: 1rem;
+}
+
+/* Botón de filtro */
+.boton-filtro {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.boton-filtro:hover {
+  background-color: #0056b3;
+}
+
+/* Contador de filtros activos */
+.filtro-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Botón de añadir (crear) emergencia */
+.boton-crear {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #28a745;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.boton-crear:hover {
+  background-color: #218838;
+}
+
+/* Contenedor cuando se edita/crea una emergencia */
+.edicion-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.boton-flotante {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  font-size: 2rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
+
+
+
+
+.boton-flotante:hover {
+  background-color: #218838;
+  transform: scale(1.1);
+}
+
+.boton-cerrar-lista {
+  position: absolute;
+  top: 1rem;
+  right: 25.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.boton-cerrar-lista:hover {
+  background-color: #a71d2a;
+}
+
+.sin-tareas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+  color: #555;
+}
+
+.modal-tarea-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1rem 0;
+}
+
+.modal-tarea-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+/* Formulario estilizado */
+.formulario-tarea {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formulario-campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.formulario-campo label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #222;
+}
+
+.formulario-campo input,
+.formulario-campo textarea,
+.formulario-campo select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.formulario-campo input:focus,
+.formulario-campo textarea:focus,
+.formulario-campo select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.formulario-campo textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Fila con dos campos */
+.formulario-fila {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.formulario-fila .formulario-campo {
+  flex: 1;
+}
+
+/* Botón principal */
+.boton-accion-principal {
+  background-color: #28a745;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-accion-principal:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}

@@ -1,0 +1,128 @@
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+.invisible-icon {
+  background: none;
+  border: none;
+}
+
+.custom-marker-wrapper {
+  background: none;
+  border: none;
+}
+
+.emergencia-marker {
+  font-size: 24px;
+  text-align: center;
+  line-height: 1;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+  user-select: none;
+  transform: translate(-50%, -50%); 
+  position: relative;
+  left: 50%;
+  top: 50%;
+}
+
+.map-legend {
+  background: rgba(255, 255, 255, 0.25); /* fondo translúcido */
+  backdrop-filter: blur(8px); /* desenfoque */
+  -webkit-backdrop-filter: blur(8px); /* soporte Safari */
+  border-radius: 12px;
+  padding: 10px 15px;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #000;
+  margin: 10px;
+  transition: all 0.3s ease;
+}
+
+.map-legend h4 {
+  margin: 0 0 6px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.map-legend ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.map-legend li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.map-legend .emoji {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+.popup-content {
+  max-height: 130px;
+  max-width: 240px;
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.4;
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
+.popup-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.popup-content::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.popup-button {
+  margin-top: 6px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.popup-button:hover {
+  background-color: #e0e0e0;
+}
+
+.popup-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  gap: 6px;
+}
+
+.popup-button-modificar {
+  background-color: #4caf50;
+  color: white;
+}
+
+.popup-button-eliminar {
+  background-color: #f44336;
+  color: white;
+}
+
+.popup-button-modificar:hover {
+  background-color: #45a049;
+}
+
+.popup-button-eliminar:hover {
+  background-color: #e53935;
+}
+
+
+
+
+
+

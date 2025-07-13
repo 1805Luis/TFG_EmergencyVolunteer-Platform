@@ -1,0 +1,32 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+.layout-main.expanded {
+  margin-left: 140px;
+  transition: margin-left 0.3s ease;
+}
+
+.layout-main.collapsed {
+  margin-left: 85px;
+  transition: margin-left 0.3s ease;
+}
+
+.layout-main {
+  flex-direction: column;
+  height: 100vh;
+}
+
+.layout-content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.layout-footer {
+  padding: 1rem;
+}
+
