@@ -67,7 +67,7 @@ namespace AssigmentService.Controllers
             {
                 // Obtener tarea
                 var tareasResponse = await _httpService.GetAsync<ApiResponse<List<TareaDTO>>>(
-                    $"http://apigateway:8080/tareas?id_tarea={asignacion.tarea_id}", token);
+                    $"http://nginx-balanceador:80/tareas?id_tarea={asignacion.tarea_id}", token);
 
                 var tarea = tareasResponse?.Success == true && tareasResponse.Data != null
                     ? tareasResponse.Data.FirstOrDefault()
@@ -81,7 +81,7 @@ namespace AssigmentService.Controllers
 
                 // Obtener grupo
                 var gruposResponse = await _httpService.GetAsync<ApiResponse<List<GrupoDTO>>>(
-                    $"http://apigateway:8080/grupos?grupoId={asignacion.grupo_id}", token);
+                    $"http://nginx-balanceador:80/grupos?grupoId={asignacion.grupo_id}", token);
 
                 var grupo = gruposResponse?.Success == true && gruposResponse.Data != null
                     ? gruposResponse.Data.FirstOrDefault()

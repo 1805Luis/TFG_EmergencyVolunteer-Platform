@@ -2,6 +2,7 @@
 {
     public class BitacoraEvent
     {
+        public Guid EventId { get; set; } = Guid.NewGuid();
         public string EntityType { get; set; } // Nombre de la entidad afectada
         public string Action { get; set; }    // Acción realizada sobre la entidad Create, Update, Delete
         public Guid ActorId { get; set; } // Identificador único del actor que realiza la acción

@@ -427,15 +427,16 @@
             "UpstreamHttpMethod": [ "GET" ],
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
-                {
-                    "Host": "bitacoraservice",
-                    "Port": 8080
-                }
+                { "Host": "bitacora1", "Port": 8080 },
+                { "Host": "bitacora2", "Port": 8080 }
             ],
             "DownstreamPathTemplate": "/audit",
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "JwtBearer",
                 "AllowedScopes": []
+            },
+            "LoadBalancerOptions": {
+                "Type": "RoundRobin"
             }
         },
 

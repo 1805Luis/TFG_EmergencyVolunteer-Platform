@@ -2,6 +2,7 @@
 {
     public class BitacoraEventDTO
     {
+        public Guid EventId { get; set; }
         public string EntityType { get; set; }
         public string Action { get; set; }
         public Guid ActorId { get; set; }

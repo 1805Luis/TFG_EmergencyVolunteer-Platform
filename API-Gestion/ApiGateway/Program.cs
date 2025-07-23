@@ -6,7 +6,7 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Agregamos configuraci�n desde ocelot.json y variables de entorno
+// Agregamos configuraci�n desde ocelot.json y variables de entorno
 builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
     .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)
     .AddEnvironmentVariables();
@@ -57,10 +57,21 @@ builder.Services.AddAuthentication(config =>
 
 var app = builder.Build();
 
+var gatewayId = Environment.GetEnvironmentVariable("GATEWAY_ID") ?? "desconocido";
+
+
 app.UseCors("AllowAll");
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.Use(async (context, next) =>
+{
+    var id = Environment.GetEnvironmentVariable("GATEWAY_ID") ?? "desconocido";
+    Console.WriteLine($"Recibí una petición en {id} - {context.Request.Method} {context.Request.Path}");
+    await next();
+});
+
 
 await app.UseOcelot();
 

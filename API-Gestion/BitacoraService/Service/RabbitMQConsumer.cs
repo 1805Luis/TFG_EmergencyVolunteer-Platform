@@ -60,8 +60,12 @@ namespace BitacoraService.Service
                     var body = ea.Body.ToArray();
                     var message = Encoding.UTF8.GetString(body);
 
-                    Console.WriteLine("\n===== Nuevo mensaje recibido por RabbitMQConsumer =====");
-                    Console.WriteLine($"Contenido del mensaje:\n{message}");
+                    Console.WriteLine("\n======================================");
+                    Console.WriteLine("📥 NUEVO MENSAJE RECIBIDO - BITACORA SERVICE");
+                    Console.WriteLine("--------------------------------------");
+                    Console.WriteLine($"🧾 Cola de origen : {ea.RoutingKey}");
+                    Console.WriteLine($"📨 Contenido      :\n{message}");
+                    Console.WriteLine("======================================\n");
 
 
                     try
@@ -111,8 +115,7 @@ namespace BitacoraService.Service
                         }
                         else
                         {
-                            Console.WriteLine("" +
-                                " El mensaje recibido no es ni un objeto JSON ni un array válido.");
+                            Console.WriteLine(" El mensaje recibido no es ni un objeto JSON ni un array válido.");
                         }
                     }
                     
@@ -154,6 +157,13 @@ namespace BitacoraService.Service
 
         private async Task GuardarEventoAsync(BitacoraEventDTO bitacora, Action_Evento actionEnum, AppDBContext dbContext, CancellationToken cancellationToken)
         {
+            bool eventoYaExiste = await dbContext.Evento.AnyAsync(e => e.Id == bitacora.EventId, cancellationToken);
+            if (eventoYaExiste)
+            {
+                Console.WriteLine($"⚠ Evento duplicado ignorado: {bitacora.EventId}");
+                return;
+            }
+
             var payload = new Payload
             {
                 Id = bitacora.EntityId,
@@ -172,7 +182,7 @@ namespace BitacoraService.Service
 
             var evento = new Evento
             {
-                Id = Guid.NewGuid(),
+                Id = bitacora.EventId,
                 EntityType = bitacora.EntityType,
                 Action = actionEnum,
                 ActorId = bitacora.ActorId,

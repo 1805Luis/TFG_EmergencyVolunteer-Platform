@@ -59,7 +59,7 @@ namespace AuthService.Controllers
             var token = HttpContext.Request.Headers["Authorization"].ToString();
 
             // Cambia la llamada para que reciba ApiResponse<UserDTO>
-            var response = await _httpService.GetAsync<ApiResponse<UserDTO>>($"http://apigateway:8080/user/{userId}", token);
+            var response = await _httpService.GetAsync<ApiResponse<UserDTO>>($"http://nginx-balanceador:80/user/{userId}", token);
 
 
             if (response == null || !response.Success || response.Data == null)

@@ -1,13 +1,46 @@
 services:
-  apigateway:
+  nginx-balanceador:
+    image: nginx:latest
+    container_name: nginx-balanceador
+    ports:
+      - "8080:80" 
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - apigateway1
+      - apigateway2
+      - apigateway3
+    restart: unless-stopped
+
+  apigateway1:
+      image: apigateway
+      container_name: apigateway1
+      build:
+        context: ./Api-Gestion/ApiGateway
+        dockerfile: Dockerfile
+      environment:
+        - GATEWAY_ID=apigateway1
+      restart: unless-stopped
+
+  apigateway2:
     image: apigateway
-    container_name: apigateway
+    container_name: apigateway2
     build:
       context: ./Api-Gestion/ApiGateway
       dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
-    restart: "unless-stopped"
+    restart: unless-stopped
+    environment:
+        - GATEWAY_ID=apigateway2
+
+  apigateway3:
+    image: apigateway
+    container_name: apigateway3
+    build:
+      context: ./Api-Gestion/ApiGateway
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - GATEWAY_ID=apigateway3
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -30,7 +63,8 @@ services:
       - rabbitmq
       - userservice
       - auth-db
-      - apigateway
+      - apigateway1
+      - apigateway2
     restart: "unless-stopped"
 
   auth-db:
@@ -53,6 +87,8 @@ services:
     depends_on:
       - rabbitmq
       - user-db
+      - apigateway1
+      - apigateway2
     restart: "unless-stopped"
 
   user-db:
@@ -64,16 +100,33 @@ services:
       MSSQL_PID: Express
     restart: "unless-stopped"
 
-  bitacoraservice:
+  bitacoraservice1:
     image: bitacoraservice
-    container_name: bitacora
+    container_name: bitacora1
     build:
       context: ./Api-Gestion/BitacoraService
       dockerfile: Dockerfile
     depends_on:
       - rabbitmq
       - bitacora-db
+      - apigateway1
+      - apigateway2
     restart: "unless-stopped"
+
+  bitacoraservice2:
+    image: bitacoraservice
+    container_name: bitacora2
+    build:
+      context: ./Api-Gestion/BitacoraService
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+      - bitacora-db
+      - apigateway1
+      - apigateway2
+    restart: "unless-stopped"
+
+  
 
   bitacora-db:
     image: postgres:16
@@ -95,6 +148,8 @@ services:
     depends_on:
       - rabbitmq
       - bitacora-db
+      - apigateway1
+      - apigateway2
     restart: "unless-stopped"
 
   task-db:
@@ -117,6 +172,8 @@ services:
     depends_on:
       - rabbitmq
       - emergency-db
+      - apigateway1
+      - apigateway2
     restart: "unless-stopped"
 
   emergency-db:
@@ -139,6 +196,8 @@ services:
     depends_on:
       - rabbitmq
       - group-db
+      - apigateway1
+      - apigateway2
     restart: "unless-stopped"
 
   group-db:
@@ -161,6 +220,8 @@ services:
     depends_on:
       - rabbitmq
       - assign-db
+      - apigateway1
+      - apigateway2
     restart: "unless-stopped"
 
   assign-db:
@@ -182,5 +243,6 @@ services:
     ports:
       - "3000:80"
     depends_on:
-      - apigateway
+      - apigateway1
+      - apigateway2
     restart: "unless-stopped"

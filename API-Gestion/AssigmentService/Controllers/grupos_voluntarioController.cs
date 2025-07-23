@@ -52,7 +52,7 @@ namespace AssigmentService.Controllers
             foreach (var asignacion in result)
             {
 
-                var response = await _httpService.GetAsync<ApiResponse<List<GrupoDTO>>>($"http://apigateway:8080/grupos?grupoId={asignacion.grupo_id}", token);
+                var response = await _httpService.GetAsync<ApiResponse<List<GrupoDTO>>>($"http://nginx-balanceador:80/grupos?grupoId={asignacion.grupo_id}", token);
 
                 if (response == null || !response.Success || response.Data == null)
                 {
@@ -158,7 +158,7 @@ namespace AssigmentService.Controllers
             foreach (var asignacion in asignaciones)
             {
 
-                var response = await _httpService.GetAsync<ApiResponse<UserDTO>>($"http://apigateway:8080/user/{asignacion.voluntario_id}", token);
+                var response = await _httpService.GetAsync<ApiResponse<UserDTO>>($"http://nginx-balanceador:80/user/{asignacion.voluntario_id}", token);
 
 
                 if (response == null || !response.Success || response.Data == null)
@@ -234,11 +234,11 @@ namespace AssigmentService.Controllers
                 ActorId = voluntarioId,
                 Antes = new Dictionary<string, object>(),
                 Despues = new Dictionary<string, object>
-        {
-            { "grupo_id", grupoId },
-            { "voluntario_id", voluntarioId },
-            { "rol", rolSeleccionado.Rol }
-        },
+                {
+                    { "grupo_id", grupoId },
+                    { "voluntario_id", voluntarioId },
+                    { "rol", rolSeleccionado.Rol }
+                },
                 Timestamp = DateTime.UtcNow
             };
 

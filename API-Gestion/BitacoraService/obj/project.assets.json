@@ -3840,11 +3840,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Luis\\Desktop\\TFG-GestionVoluntariado\\API-Gestion\\BitacoraService\\BitacoraService.csproj",
+      "projectUniqueName": "C:\\Users\\Luis\\Desktop\\Git\\TFG\\API-Gestion\\BitacoraService\\BitacoraService.csproj",
       "projectName": "BitacoraService",
-      "projectPath": "C:\\Users\\Luis\\Desktop\\TFG-GestionVoluntariado\\API-Gestion\\BitacoraService\\BitacoraService.csproj",
+      "projectPath": "C:\\Users\\Luis\\Desktop\\Git\\TFG\\API-Gestion\\BitacoraService\\BitacoraService.csproj",
       "packagesPath": "C:\\Users\\Luis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Luis\\Desktop\\TFG-GestionVoluntariado\\API-Gestion\\BitacoraService\\obj\\",
+      "outputPath": "C:\\Users\\Luis\\Desktop\\Git\\TFG\\API-Gestion\\BitacoraService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

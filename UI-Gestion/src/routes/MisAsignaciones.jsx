@@ -15,6 +15,9 @@ export default function MisAsignaciones(){
     const [miembrosGrupo, setMiembrosGrupo] = useState([]);
     const [modalAbierto, setModalAbierto] = useState(false);
     const [grupoActivoId, setGrupoActivoId] = useState(null);
+    const [tareaSeleccionada, setTareaSeleccionada] = useState(null);
+    const [modalTareaAbierto, setModalTareaAbierto] = useState(false);
+
 
 
 
@@ -62,6 +65,16 @@ export default function MisAsignaciones(){
                         {row.grupo_Id}
                     </span>
                     <span className="tooltip">Ver Grupo y recursos</span>
+                </div>
+            );
+        }
+        if (column === "tarea_Id") {
+            return (
+                <div className="tooltip-container">
+                    <span className="id-interactivo" onClick={() => obtenerInfoTarea(row.tarea_Id)}>
+                        {row.tarea_Id}
+                    </span>
+                    <span className="tooltip">Ver Tarea</span>
                 </div>
             );
         }
@@ -223,6 +236,28 @@ export default function MisAsignaciones(){
         navigate(`/asignaciones/grupoRecursos?id=${grupoId}`);
     };
 
+    const obtenerInfoTarea = async (tarea_Id) => {
+        const { isAuthenticated, checkAuth } = auth;
+        await checkAuth();
+
+        if (!isAuthenticated) {
+            Notificar.Error("Sesión caducada. Por favor inicia sesión nuevamente.");
+            return;
+        }
+
+        const token = auth.getAccessToken();
+
+        const result = await ApiService.get(`/tareas`, token, { id_tarea: tarea_Id });
+
+        if (result.success && result.data) {
+            setTareaSeleccionada(result.data[0]); 
+            setModalTareaAbierto(true);
+        } else {
+            Notificar.Error("No se pudo obtener la información de la tarea.");
+        }
+    };
+
+
 
     const configFiltros = [
         {
@@ -326,6 +361,23 @@ export default function MisAsignaciones(){
         </ul>
       </div>
     </Modal>
+    <Modal isOpen={modalTareaAbierto} closeModal={() => setModalTareaAbierto(false)} textoBoton="Cerrar">
+        {tareaSeleccionada ? (
+            <div className="modal-contenido-blur tarjeta-equipo">
+            <h2>📋 Información de la Tarea</h2>
+            <ul className="info-tarea-lista">
+                <li><strong>📝 Nombre:</strong> {tareaSeleccionada.nombre}</li>
+                <li><strong>📍 Ubicación:</strong> {tareaSeleccionada.ubicacion}</li>
+                <li><strong>🧾 Descripción:</strong> {tareaSeleccionada.descripcion}</li>
+                <li><strong>⚠️ Gravedad:</strong> {tareaSeleccionada.gravedad}</li>
+                <li><strong>🛠️ Habilidades mínimas:</strong> {tareaSeleccionada.habilidadesMin}</li>
+            </ul>
+            </div>
+        ) : (
+            <p>Cargando información...</p>
+        )}
+    </Modal>
+
 
     <div className="listado-glass">
       <ListadoConFiltros

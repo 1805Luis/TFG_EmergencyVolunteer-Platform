@@ -2,6 +2,7 @@
 {
     public class BitacoraEvent
     {
+        public Guid EventId { get; set; } = Guid.NewGuid();
         public string EntityType { get; set; } 
         public string Action { get; set; }  
         public Guid ActorId { get; set; } 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m+uIoem2K5g=",
+  "dgSpecHash": "XQ+TiGOrauM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Luis\\Desktop\\TFG-GestionVoluntariado\\API-Gestion\\BitacoraService\\BitacoraService.csproj",
+  "projectFilePath": "C:\\Users\\Luis\\Desktop\\Git\\TFG\\API-Gestion\\BitacoraService\\BitacoraService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Luis\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Luis\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.12\\microsoft.aspnetcore.authentication.jwtbearer.8.0.12.nupkg.sha512",
