@@ -33,7 +33,7 @@ La rapidez y coordinación en situaciones críticas como catástrofes naturales 
 ---
 
 ## Arquitectura del sistema
-  ![Diagrama de arquitectura](img/Diagrama de flujo.png)
+  ![Diagrama de arquitectura](https://github.com/1805Luis/TFG/blob/main/img/Diagrama%20de%20flujo.png))
 
 
  ---
@@ -41,14 +41,14 @@ La rapidez y coordinación en situaciones críticas como catástrofes naturales 
 ## Estructura del repositorio
 /
 - API_gestion/ # Toda la API con microservicios y API Gateway
-      - El sistema está dividido en microservicios independientes que se comunican a través de RabbitMQ y se exponen mediante un API Gateway que gestiona la autenticación, autorización y el enrutamiento.
-      - **Auth Service**: Gestión de usuarios, autenticación y emisión de JWT.
-      - **User Service**: Datos detallados de voluntarios.
-      - **Group Service**: Organización en grupos.
-      - **Emergency Service**: Registro y gestión de emergencias.
-      - **Task Service**: Creación y gestión de tareas.
-      - **Assignment Service**: Asignación de tareas a voluntarios.
-      - **Bitácora Service**: Registro y auditoría de eventos.  
+  - El sistema está dividido en microservicios independientes que se comunican a través de RabbitMQ y se exponen mediante un API Gateway que gestiona la autenticación, autorización y el enrutamiento.
+  - **Auth Service**: Gestión de usuarios, autenticación y emisión de JWT.
+  - **User Service**: Datos detallados de voluntarios.
+  - **Group Service**: Organización en grupos.
+  - **Emergency Service**: Registro y gestión de emergencias.
+  - **Task Service**: Creación y gestión de tareas.
+  - **Assignment Service**: Asignación de tareas a voluntarios.
+  - **Bitácora Service**: Registro y auditoría de eventos.  
 - nginx/ # Configuración del balanceador de carga NGINX
 - UI-gestion/ # Frontend React del sistema
 - docker-compose.con-balanceador.yml # Docker Compose con NGINX balanceador
