@@ -30,6 +30,7 @@ La rapidez y coordinación en situaciones críticas como catástrofes naturales 
 | Seguridad             | JWT (JSON Web Tokens)                         |
 | Balanceo de carga     | NGINX (opcional)                             |
 
+---
 
 ## Arquitectura del sistema
 
@@ -43,15 +44,17 @@ El sistema está dividido en microservicios independientes que se comunican a tr
 - **Assignment Service**: Asignación de tareas a voluntarios.
 - **Bitácora Service**: Registro y auditoría de eventos.
 
+ ---
+
 ## Estructura del repositorio
 /
-├── API_gestion/ # Toda la API con microservicios y API Gateway
-├── nginx/ # Configuración del balanceador de carga NGINX
-├── UI-gestion/ # Frontend React del sistema
-├── docker-compose.con-balanceador.yml # Docker Compose con NGINX balanceador
-├── docker-compose.sin-balanceador.yml # Docker Compose sin NGINX (acceso directo)
+- API_gestion/ # Toda la API con microservicios y API Gateway
+- nginx/ # Configuración del balanceador de carga NGINX
+- UI-gestion/ # Frontend React del sistema
+- docker-compose.con-balanceador.yml # Docker Compose con NGINX balanceador
+- docker-compose.sin-balanceador.yml # Docker Compose sin NGINX (acceso directo)
 
-## Descripción general
+### Descripción general
 
 - La carpeta **API_gestion** contiene todos los microservicios que conforman la API REST, incluyendo el API Gateway configurado con Ocelot.
 - La carpeta **nginx** incluye la configuración para el balanceador NGINX que distribuye el tráfico hacia el API Gateway y otros servicios si es necesario.
@@ -97,7 +100,10 @@ Frontend intuitivo para usuarios y administradores.
 
 ## Autor
 Luis Zambrana
+
 Gradudado del Grado en Tecnologías para la Sociedad de la Información
+
 Universidad Politecnica de Madrid
+
 [🔗 LinkedIn](https://www.linkedin.com/in/luis-zambrana-rodrigo-6100b421b/)
 
