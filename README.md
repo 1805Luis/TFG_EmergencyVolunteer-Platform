@@ -33,7 +33,7 @@ La rapidez y coordinación en situaciones críticas como catástrofes naturales 
 ---
 
 ## Arquitectura del sistema
-  ![Diagrama de arquitectura](https://github.com/1805Luis/TFG/blob/main/img/Diagrama%20de%20flujo.png)
+  ![Diagrama de arquitectura](https://github.com/1805Luis/TFG/blob/main/img/Diagrama%20despliegue.png)
  ---
 
 ## Estructura del repositorio
