@@ -64,6 +64,8 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
     });
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

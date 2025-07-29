@@ -20,6 +20,7 @@ services:
         dockerfile: Dockerfile
       environment:
         - GATEWAY_ID=apigateway1
+        - OCEL0T_ENV=nginx
       restart: unless-stopped
 
   apigateway2:
@@ -31,6 +32,7 @@ services:
     restart: unless-stopped
     environment:
         - GATEWAY_ID=apigateway2
+        - OCEL0T_ENV=nginx
 
   apigateway3:
     image: apigateway
@@ -41,6 +43,7 @@ services:
     restart: unless-stopped
     environment:
       - GATEWAY_ID=apigateway3
+      - OCEL0T_ENV=nginx
 
   rabbitmq:
     image: rabbitmq:3-management
